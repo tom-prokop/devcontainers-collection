@@ -1,0 +1,29 @@
+{
+  "name": "lightweight-webdev",
+  "image": "node:alpine",
+  "customizations": {
+    "vscode": {
+      "settings": {
+        "editor.tabSize": 4,
+        "terminal.integrated.shell.linux": "/bin/sh"
+      },
+      "extensions": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag",
+        "ms-azuretools.vscode-docker",
+        "ms-vscode-remote.remote-containers",
+        "ritwickdey.LiveServer",
+        "sysoev.language-stylus",
+        "wix.vscode-import-cost"
+      ]
+    }
+  },
+  "forwardPorts": [3000],
+  "postCreateCommand": "npm install",
+  "remoteUser": "node",
+  "mounts": [
+    "source=${localWorkspaceFolder}/node_modules,target=/workspace/node_modules,type=volume" // Persist node_modules folder
+  ]
+}
